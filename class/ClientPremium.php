@@ -4,11 +4,11 @@ class ClientPremium extends Client {
     protected $premiumCode;
     protected $discount;
 
+
     function __construct($_username,$_password,$_numberCard, $_dateOfExpire, $_vpn) {
         parent::__construct($_username,$_password);
-        $this->numberCard = $_numberCard;
-        $this->dateOfExpire = $_dateOfExpire;
-        $this->vpn = $_vpn;
+        $this->setCard($_numberCard, $_dateOfExpire, $_vpn);
+
         $this->setPremiumCode();
 
     }
