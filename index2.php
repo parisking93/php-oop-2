@@ -4,7 +4,9 @@ BONUS: Gestite eventuali eccezioni che si possono verificare (es: carta di credi
 
 <?php 
 require_once __DIR__ . "/class/Client.php";
+require_once __DIR__ . "/class/Product.php";
 require_once __DIR__ . "/class/ClientPremium.php";
+
 
 // cliente normale 
 $pippo = new Client('ciccio', 'bruno');
@@ -20,6 +22,22 @@ $pippo->setCard(232131313143,'05/22',365);
 
 // contro se il numero della carta è corretto 
 echo '<br> la carta  di pippo ' . $pippo->getCard();
+
+//metto i prodotti sullo shop
+$product1 = new Product('computer', 250,5);
+$product2 = new Product('radio',100,2);
+
+//aggiungo i prodotti sul carrello del cliente
+$pippo->addProduct($product1->getProduct());
+
+//aggiungo i prodotti sul carrello del cliente Premium con lo sconto 
+$gino->addProduct($product1->getProduct());
+$gino->addProduct($product1->getProduct());
+$gino->addProduct($product2->getProduct());
+
+//controllo quanti elementi di un determinato prodotto sono rimasti
+echo '<br> i prodotti rimasti sono ' . $product1->getItemLeft();
+
 
 var_dump($gino);
 var_dump($pippo);

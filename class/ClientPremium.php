@@ -8,11 +8,10 @@ class ClientPremium extends Client {
     function __construct($_username,$_password,$_numberCard, $_dateOfExpire, $_vpn) {
         parent::__construct($_username,$_password);
         $this->setCard($_numberCard, $_dateOfExpire, $_vpn);
-
         $this->setPremiumCode();
 
     }
-
+    // assegno il codice premium al nuovo cliente con il discount
     private function setPremiumCode(){
         for($i = 0; $i < 7; $i++) {
             $this->premiumCode .= rand(1,9);
@@ -22,6 +21,11 @@ class ClientPremium extends Client {
 
     public function getPremiumCode() {
         return $this->premiumCode;
+    }
+
+    public function addProduct($_product) {
+        $_product[1] *= 0.9;
+        $this->products[] = $_product;
     }
 
 }
