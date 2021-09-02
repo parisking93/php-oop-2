@@ -33,10 +33,23 @@ $pippo->addProduct($product1->getProduct());
 //aggiungo i prodotti sul carrello del cliente Premium con lo sconto 
 $gino->addProduct($product1->getProduct());
 $gino->addProduct($product1->getProduct());
-$gino->addProduct($product2->getProduct());
+$gino->addProduct($product1->getProduct());
+$gino->addProduct($product1->getProduct());
 
 //controllo quanti elementi di un determinato prodotto sono rimasti
-echo '<br> i prodotti rimasti sono ' . $product1->getItemLeft();
+echo '<br> ' . $product1->name . ' rimasti sono ' . $product1->getItemLeft();
+
+//se il prodotto è finito mando il messaggio
+try {
+    $gino->addProduct($product1->getProduct());
+} catch (Exception $e) {
+    echo '<br> IL PRODOTTO '. $product1->name .' E\' FINITO';
+}
+
+
+$gino->addProduct($product2->getProduct());
+
+
 
 
 var_dump($gino);

@@ -1,6 +1,6 @@
 <?php
 class Product {
-    protected $name;
+    public $name;
     public $description;
     protected $price;
     public $img;
@@ -22,6 +22,8 @@ class Product {
         if($this->numberOfProduct>0) {
             $this->numberOfProduct -= 1;
             return [$this->name,$this->price,$this->img,$this->description];
+        } else {
+            throw new Exception('I prodotti sono finiti');
         }
     }
     public function getItemLeft() {
