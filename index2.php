@@ -4,9 +4,26 @@ BONUS: Gestite eventuali eccezioni che si possono verificare (es: carta di credi
 
 <?php 
 require_once __DIR__ . "/class/Client.php";
+require_once __DIR__ . "/class/ClientPremium.php";
+
+// cliente normale 
 $pippo = new Client('ciccio', 'bruno');
-$pippo->setCard(23232443,04/22,345);
-echo 'numero della carta: ' . $pippo->getCard();
+
+// cliente Premium è obbligato ad aggiungere la carta 
+$gino = new ClientPremium('ciccio', 'bruno',23232443,'04/22',345);
+
+// controllo codice premium del cliente Premium
+echo 'il codice premio di gino ' . $gino->getPremiumCode();
+
+// aggiungere il numero della carta per cliente normale 
+$pippo->setCard(232131313143,'05/22',365);
+
+// contro se il numero della carta è corretto 
+echo '<br> la carta  di pippo ' . $pippo->getCard();
+
+var_dump($gino);
+var_dump($pippo);
+
 
 ?>
 
