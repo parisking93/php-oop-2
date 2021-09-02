@@ -3,7 +3,11 @@ Provate a far interagire tra di loro gli oggetti: ad esempio, l'utente dello sho
 BONUS: Gestite eventuali eccezioni che si possono verificare (es: carta di credito scaduta). -->
 
 <?php 
-echo 'ciao';
+require_once __DIR__ . "/class/Client.php";
+$pippo = new Client('ciccio', 'bruno');
+$pippo->setCard(23232443,04/22,345);
+echo 'numero della carta: ' . $pippo->getCard();
+
 ?>
 
 <!DOCTYPE html>
